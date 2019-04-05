@@ -7,8 +7,6 @@ import Image from '../components/image';
 import SEO from '../components/seo';
 import PostListing from '../components/PostListing';
 
-console.log(PostListing);
-
 class IndexPage extends Component {
   render() {
     const { edges } = this.props.data.allWordpressPost;
@@ -28,7 +26,11 @@ export const query = graphql`
     allWordpressPost {
       edges {
         node {
+          id
           title
+          featured_media {
+            source_url
+          }
         }
       }
     }
