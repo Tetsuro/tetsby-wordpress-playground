@@ -23,7 +23,7 @@ class IndexPage extends Component {
 
 export const query = graphql`
   query {
-    allWordpressPost {
+    allWordpressPost(limit: 10) {
       edges {
         node {
           id
