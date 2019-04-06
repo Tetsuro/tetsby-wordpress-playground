@@ -9,13 +9,16 @@ export default class PostListing extends Component {
     console.log(styles);
 
     const listing = nodes.map(node => {
-      const { title, id } = node;
-      const url = node.featured_media ? node.featured_media.source_url : '';
+      const { title, id, slug } = node;
+      // const url = node.featured_media.localFile
+      //   ? node.featured_media.localFile.relativePath
+      //   : '';
 
       return (
         <li key={id} className={styles.PostListing}>
-          <img src={url} className={styles.PostListingThumbnail} />
-          <span
+          {/* <img src={url} className={styles.PostListingThumbnail} /> */}
+          <a
+            href={slug}
             dangerouslySetInnerHTML={{
               __html: title,
             }}

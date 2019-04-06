@@ -1,9 +1,9 @@
 let activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development';
 
 require('dotenv').config({
   path: `.env.${activeEnv}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -36,15 +36,15 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: 'gatsby-source-wordpress',
       options: {
         /*
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "tetchi.ca",
+        baseUrl: 'tetchi.ca',
         // The protocol. This can be http or https.
-        protocol: "https",
+        protocol: 'https',
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the assumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -66,8 +66,8 @@ module.exports = {
         auth: {
           // If auth.user and auth.pass are filled, then the source plugin will be allowed
           // to access endpoints that are protected with .htaccess.
-          htaccess_user: "your-htaccess-username",
-          htaccess_pass: "your-htaccess-password",
+          htaccess_user: 'your-htaccess-username',
+          htaccess_pass: 'your-htaccess-password',
           htaccess_sendImmediately: false,
 
           // If hostingWPCOM is true then you will need to communicate with wordpress.com API
@@ -77,8 +77,8 @@ module.exports = {
           // If two-factor authentication is enabled then you need to create an Application-Specific Password,
           // see https://en.support.wordpress.com/security/two-step-authentication/#application-specific-passwords
           wpcom_app_clientSecret: process.env.WORDPRESS_CLIENT_SECRET,
-          wpcom_app_clientId: "54793",
-          wpcom_user: "gatsbyjswpexample@gmail.com",
+          wpcom_app_clientId: '54793',
+          wpcom_user: 'gatsbyjswpexample@gmail.com',
           wpcom_pass: process.env.WORDPRESS_PASSWORD,
 
           // If you use "JWT Authentication for WP REST API" (https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/)
@@ -86,7 +86,7 @@ module.exports = {
           // plugin, you can specify user and password to obtain access token and use authenticated requests against wordpress REST API.
           jwt_user: process.env.JWT_USER,
           jwt_pass: process.env.JWT_PASSWORD,
-          jwt_base_path: "/jwt-auth/v1/token", // Default - can skip if you are using https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
+          jwt_base_path: '/jwt-auth/v1/token', // Default - can skip if you are using https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
         },
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
@@ -95,8 +95,8 @@ module.exports = {
         perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://source-url.com",
-          replacementUrl: "https://replacement-url.com",
+          sourceUrl: 'https://source-url.com',
+          replacementUrl: 'https://replacement-url.com',
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
@@ -110,19 +110,17 @@ module.exports = {
         // all routes that begin with `yoast` from fetch.
         // Whitelisted routes using glob patterns
         includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
+          '**/categories',
+          '**/posts',
+          '**/pages',
+          // '**/media',
+          '**/tags',
         ],
         // Blacklisted routes using glob patterns
-        excludedRoutes: ["**/posts/1456"],
+        excludedRoutes: ['**/posts/1456'],
         // use a custom normalizer which is applied after the built-in ones.
-        normalizer: function ({
-          entities
-        }) {
-          return entities
+        normalizer: function({ entities }) {
+          return entities;
         },
       },
     },
@@ -130,4 +128,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

@@ -28,9 +28,7 @@ export const query = graphql`
         node {
           id
           title
-          featured_media {
-            source_url
-          }
+          slug
         }
       }
     }
