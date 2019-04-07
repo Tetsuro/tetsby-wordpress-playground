@@ -28,7 +28,16 @@ export const query = graphql`
         node {
           id
           title
-          slug
+          featured_media {
+            localFile {
+              childImageSharp {
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+              relativePath
+            }
+          }
         }
       }
     }

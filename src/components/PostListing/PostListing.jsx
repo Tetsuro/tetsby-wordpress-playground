@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import styles from './PostListing.module.scss';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+
+console.log(Image);
 
 export default class PostListing extends Component {
   render() {
@@ -9,13 +12,14 @@ export default class PostListing extends Component {
 
     const listing = nodes.map(node => {
       const { title, id, slug } = node;
-      // const url = node.featured_media.localFile
-      //   ? node.featured_media.localFile.relativePath
-      //   : '';
+
+      const { fixed } = node.featured_media.localFile
+        ? node.featured_media.localFile.childImageSharp
+        : null;
 
       return (
         <li key={id} className={styles.PostListing}>
-          {/* <img src={url} className={styles.PostListingThumbnail} /> */}
+          <Img fixed={fixed} className={styles.PostListingThumbnail} />
           <Link to={`/${slug}`}>
             <span
               dangerouslySetInnerHTML={{
