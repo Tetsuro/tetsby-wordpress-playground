@@ -2,7 +2,6 @@ const path = require(`path`);
 
 exports.onCreateNode = ({ node, getNode }) => {
   if (node.internal.type === 'wordpress__POST') {
-    // console.log(node);
   }
 };
 
@@ -21,6 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `).then(result => {
     result.data.allWordpressPost.edges.forEach(({ node }) => {
+      console.log('create page!', node.slug);
       createPage({
         path: node.slug,
         component: path.resolve(`./src/pages/post.jsx`),

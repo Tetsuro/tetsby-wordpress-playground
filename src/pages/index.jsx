@@ -28,6 +28,7 @@ export const query = graphql`
         node {
           id
           title
+          slug
           featured_media {
             localFile {
               childImageSharp {
