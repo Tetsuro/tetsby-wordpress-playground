@@ -10,6 +10,7 @@ class Post extends Component {
 
     return (
       <Layout>
+        <p>Hello</p>
         <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
         <h1
           dangerouslySetInnerHTML={{
