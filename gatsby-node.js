@@ -20,10 +20,9 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `).then(result => {
     result.data.allWordpressPost.edges.forEach(({ node }) => {
-      console.log('create page!', node.slug);
       createPage({
         path: node.slug,
-        component: path.resolve(`./src/pages/post.jsx`),
+        component: path.resolve(`./src/templates/post.jsx`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
