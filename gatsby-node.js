@@ -19,7 +19,11 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    result.data.allWordpressPost.edges.forEach(({ node }) => {
+    const posts = result.data.allWordpressPost.edges;
+    const postsPerPage = 5;
+    const numberOfPages = Math.ceil(posts.length / postsPerPage);
+
+    posts.forEach(({ node }, i) => {
       createPage({
         path: node.slug,
         component: path.resolve(`./src/templates/post.jsx`),
@@ -27,6 +31,17 @@ exports.createPages = ({ graphql, actions }) => {
           // Data passed to context is available
           // in page queries as GraphQL variables.
           slug: node.slug,
+        },
+      });
+
+      createPage({
+        path: i === 0 ? '/' : `/page/${i + 1}`,
+        component: path.resolve('./src/templates/PostListing.jsx'),
+        context: {
+          currentPage: i + 1,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numberOfPages,
         },
       });
     });
