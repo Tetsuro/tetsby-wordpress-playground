@@ -20,6 +20,8 @@ class PostListing extends Component {
 
     const nextPageUrl = `/page/${currentPage + 1}`;
 
+    const defaultThumbnail = this.props.data.allImageSharp.edges[0].node.fixed;
+
     const previousLinkMarkup = isFirst ? null : (
       <Link to={prevPageUrl} rel="prev">
         ← Previous Page
@@ -35,7 +37,7 @@ class PostListing extends Component {
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <PostList nodes={nodes} />
+        <PostList nodes={nodes} defaultThumbnail={defaultThumbnail} />
         {previousLinkMarkup}
         {nextLinkMarkup}
       </Layout>
@@ -44,7 +46,7 @@ class PostListing extends Component {
 }
 
 export const query = graphql`
-  query($limit: Int!, $skip: Int!) {
+  query PostsQuery($limit: Int!, $skip: Int!) {
     allWordpressPost(limit: $limit, skip: $skip) {
       edges {
         node {
@@ -60,6 +62,17 @@ export const query = graphql`
               }
               relativePath
             }
+          }
+        }
+      }
+    }
+    allImageSharp(
+      filter: { original: { src: { regex: "/tetchi-profile/" } } }
+    ) {
+      edges {
+        node {
+          fixed(width: 150, height: 150) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
