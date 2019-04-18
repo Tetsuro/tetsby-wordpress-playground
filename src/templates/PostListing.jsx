@@ -10,36 +10,20 @@ import PostList from '../components/PostList';
 class PostListing extends Component {
   render() {
     const { edges } = this.props.data.allWordpressPost;
-    const nodes = edges.map(({ node }) => node);
     const { currentPage, numberOfPages } = this.props.pageContext;
-
-    const isFirst = currentPage === 1;
-    const isLast = currentPage === numberOfPages;
-    const prevPageUrl =
-      currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`;
-
-    const nextPageUrl = `/page/${currentPage + 1}`;
-
     const defaultThumbnail = this.props.data.allImageSharp.edges[0].node.fixed;
 
-    const previousLinkMarkup = isFirst ? null : (
-      <Link to={prevPageUrl} rel="prev">
-        ← Previous Page
-      </Link>
-    );
-
-    const nextLinkMarkup = isLast ? null : (
-      <Link to={nextPageUrl} rel="next">
-        Next Page →
-      </Link>
-    );
+    const nodes = edges.map(({ node }) => node);
 
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <PostList nodes={nodes} defaultThumbnail={defaultThumbnail} />
-        {previousLinkMarkup}
-        {nextLinkMarkup}
+        <PostList
+          nodes={nodes}
+          defaultThumbnail={defaultThumbnail}
+          currentPage={currentPage}
+          numberOfPages={numberOfPages}
+        />
       </Layout>
     );
   }

@@ -7,7 +7,27 @@ import Img from 'gatsby-image';
 
 export default class PostList extends Component {
   render() {
-    const { nodes, defaultThumbnail } = this.props;
+    const { nodes, defaultThumbnail, currentPage, numberOfPages } = this.props;
+
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numberOfPages;
+
+    const prevPageUrl =
+      currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`;
+
+    const nextPageUrl = `/page/${currentPage + 1}`;
+
+    const previousLinkMarkup = isFirst ? null : (
+      <Link to={prevPageUrl} rel="prev">
+        ← Previous Page
+      </Link>
+    );
+
+    const nextLinkMarkup = isLast ? null : (
+      <Link to={nextPageUrl} rel="next">
+        Next Page →
+      </Link>
+    );
 
     const listing = nodes.map(node => {
       const { title, id, slug } = node;
@@ -38,7 +58,15 @@ export default class PostList extends Component {
       );
     });
 
-    return <ul>{listing}</ul>;
+    return (
+      <div>
+        <ul>{listing}</ul>
+        <div className={styles.Pagination}>
+          {previousLinkMarkup}
+          {nextLinkMarkup}
+        </div>
+      </div>
+    );
   }
 }
 
