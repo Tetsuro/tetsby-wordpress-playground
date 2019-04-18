@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { graphql } from 'gatsby';
 
 import styles from './PostList.module.scss';
 import { Link } from 'gatsby';
@@ -6,7 +7,27 @@ import Img from 'gatsby-image';
 
 export default class PostList extends Component {
   render() {
-    const { nodes } = this.props;
+    const { nodes, defaultThumbnail, currentPage, numberOfPages } = this.props;
+
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numberOfPages;
+
+    const prevPageUrl =
+      currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`;
+
+    const nextPageUrl = `/page/${currentPage + 1}`;
+
+    const previousLinkMarkup = isFirst ? null : (
+      <Link to={prevPageUrl} rel="prev">
+        ← Previous Page
+      </Link>
+    );
+
+    const nextLinkMarkup = isLast ? null : (
+      <Link to={nextPageUrl} rel="next">
+        Next Page →
+      </Link>
+    );
 
     const listing = nodes.map(node => {
       const { title, id, slug } = node;
@@ -15,11 +36,13 @@ export default class PostList extends Component {
         ? node.featured_media.localFile
         : null;
 
-      const fixed = localFile ? localFile.childImageSharp.fixed : null;
+      const fixed = localFile
+        ? localFile.childImageSharp.fixed
+        : defaultThumbnail;
 
-      const featuredImageMarkup = fixed ? (
+      const featuredImageMarkup = (
         <Img fixed={fixed} className={styles.PostListThumbnail} />
-      ) : null;
+      );
 
       return (
         <li key={id} className={styles.PostList}>
@@ -35,6 +58,20 @@ export default class PostList extends Component {
       );
     });
 
-    return <ul>{listing}</ul>;
+    return (
+      <div>
+        <ul>{listing}</ul>
+        <div className={styles.Pagination}>
+          {previousLinkMarkup}
+          {nextLinkMarkup}
+        </div>
+      </div>
+    );
   }
 }
+
+// export const query = graphql`
+//   query {
+
+//   }
+// `;
