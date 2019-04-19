@@ -3,10 +3,13 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import CommentsList from '../components/CommentsList';
 
 class Post extends Component {
   render() {
     const { title, content } = this.props.data.wordpressPost;
+    const { edges } = this.props.data.allWordpressWpComments;
+    const comments = edges.map(({ node }) => node);
 
     return (
       <Layout>
@@ -21,6 +24,7 @@ class Post extends Component {
             __html: content,
           }}
         />
+        <CommentsList comments={comments} />
       </Layout>
     );
   }
@@ -29,10 +33,20 @@ class Post extends Component {
 export default Post;
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $wordpressId: Int!) {
     wordpressPost(slug: { eq: $slug }) {
       title
       content
+      wordpress_id
+    }
+    allWordpressWpComments(filter: { post: { eq: $wordpressId } }) {
+      edges {
+        node {
+          content
+          author_name
+          date(formatString: "MMMM Do, YYYY")
+        }
+      }
     }
   }
 `;
