@@ -18,16 +18,38 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allWordpressPage {
+        edges {
+          node {
+            title
+            content
+            slug
+            wordpress_id
+          }
+        }
+      }
     }
   `).then(result => {
     const posts = result.data.allWordpressPost.edges;
     const postsPerPage = 5;
     const numberOfPages = Math.ceil(posts.length / postsPerPage);
 
+    const pages = result.data.allWordpressPage.edges;
+
+    pages.forEach(({ node }) => {
+      createPage({
+        path: node.slug,
+        component: path.resolve(`./src/templates/Page.jsx`),
+        context: {
+          slug: node.slug,
+        },
+      });
+    });
+
     posts.forEach(({ node }, i) => {
       createPage({
         path: node.slug,
-        component: path.resolve(`./src/templates/post.jsx`),
+        component: path.resolve(`./src/templates/Post.jsx`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
