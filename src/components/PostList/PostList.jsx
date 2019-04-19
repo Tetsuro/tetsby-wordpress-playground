@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 import styles from './PostList.module.scss';
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 
 export default class PostList extends Component {
   render() {
@@ -69,9 +68,3 @@ export default class PostList extends Component {
     );
   }
 }
-
-// export const query = graphql`
-//   query {
-
-//   }
-// `;
