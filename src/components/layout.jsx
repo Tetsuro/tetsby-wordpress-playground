@@ -1,15 +1,9 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
+import MainMenu from './MainMenu';
 import './layout.css';
 
 const Layout = ({ children }) => (
@@ -21,18 +15,12 @@ const Layout = ({ children }) => (
             title
           }
         }
-        allWordpressPost {
-          edges {
-            node {
-              title
-            }
-          }
-        }
       }
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />{' '}
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <MainMenu />
         <div
           style={{
             margin: `0 auto`,
@@ -41,8 +29,8 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
-          <main> {children} </main>
-        </div>{' '}
+          <main>{children}</main>
+        </div>
       </>
     )}
   />
