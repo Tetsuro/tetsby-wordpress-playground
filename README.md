@@ -15,6 +15,7 @@ Add the following:
 
 ```
 WP_BASE_URL=localhost:XXXX
+WP_PROTOCOL=http
 ```
 
 
