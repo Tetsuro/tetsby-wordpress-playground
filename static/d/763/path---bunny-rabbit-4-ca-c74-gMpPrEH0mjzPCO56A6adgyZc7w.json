@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$previousPostSlug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcTemplatesPostJsx4201681242\".","locations":[{"line":4,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"bunny-rabbit","wordpressId":2993,"previousPostSlug":"shopify-theme-from-scratch","nextPostSlug":"dat-dribbble"}}

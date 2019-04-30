@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"shopify-tutorial-conditional-statements-in-liquid-and-metadata","id":"6f68d9a5-6188-56c3-8c49-c207d5e7bb63"}}

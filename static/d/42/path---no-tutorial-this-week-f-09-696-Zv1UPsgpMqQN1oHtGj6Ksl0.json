@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"no-tutorial-this-week","id":"929dbfa8-ae01-583e-8d10-7e3c90260c3d"}}

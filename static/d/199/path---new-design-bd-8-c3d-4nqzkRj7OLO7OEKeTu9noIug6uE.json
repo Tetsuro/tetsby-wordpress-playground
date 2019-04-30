@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"new-design","id":"06efef6a-1259-5047-8a7f-f42077e6ac20"}}

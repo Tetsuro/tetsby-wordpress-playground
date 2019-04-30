@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"i-wrote-my-first-medium-article","id":"5f26311c-adc6-5d8c-90b0-e0a592180086"}}

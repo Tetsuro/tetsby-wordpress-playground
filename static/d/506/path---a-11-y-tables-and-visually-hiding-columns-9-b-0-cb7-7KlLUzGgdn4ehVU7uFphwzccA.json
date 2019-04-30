@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"a11y-tables-and-visually-hiding-columns","id":"7cb8b0bd-5057-53d5-8d24-13275883dc33"}}

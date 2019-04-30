@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"shopify-tutorial-creating-a-threadless-like-add-to-cart-button-using-jquery-and-ajax","id":"c2673c92-f4b7-5fab-a59e-893080dcb463"}}

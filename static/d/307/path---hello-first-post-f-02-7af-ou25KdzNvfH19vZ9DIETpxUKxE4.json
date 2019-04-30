@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$wordpressId\" of required type \"Int!\" was not provided.","locations":[{"line":3,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"hello-first-post"}}

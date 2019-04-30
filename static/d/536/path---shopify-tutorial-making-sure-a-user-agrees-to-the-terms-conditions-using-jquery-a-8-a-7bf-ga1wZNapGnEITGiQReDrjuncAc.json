@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"shopify-tutorial-making-sure-a-user-agrees-to-the-terms-conditions-using-jquery","id":"c4bb7b33-3422-508c-b158-4d6dbf74f236"}}

@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$slug\" is never used in operation \"usersTetchiDocumentsGitTetsbyWordpressPlaygroundSrcPagesPostJsx1331623251\".","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"shopify-theme-settings-assigning-colors-dynamically-using-sass","id":"c4d92936-58fb-5052-8ecb-2f58c1d3c327"}}
