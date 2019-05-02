@@ -6,6 +6,7 @@ require('dotenv').config({
 });
 
 module.exports = {
+  pathPrefix: '/tetsby-wordpress-playground',
   siteMetadata: {
     title: 'Tetchi x Wordpress',
     description: 'Playing around with WP and Gatsby',
@@ -95,8 +96,8 @@ module.exports = {
         perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: 'https://source-url.com',
-          replacementUrl: 'https://replacement-url.com',
+          sourceUrl: 'http://localhost:9999',
+          replacementUrl: 'https://www.tetchi.ca',
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
