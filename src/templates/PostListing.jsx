@@ -11,7 +11,7 @@ class PostListing extends Component {
   render() {
     const { edges } = this.props.data.allWordpressPost;
     const { currentPage, numberOfPages } = this.props.pageContext;
-    const defaultThumbnail = this.props.data.allImageSharp.edges[0].node.fixed;
+    // const defaultThumbnail = this.props.data.allImageSharp.edges[0].node.fixed;
 
     const nodes = edges.map(({ node }) => node);
 
@@ -20,7 +20,7 @@ class PostListing extends Component {
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <PostList
           nodes={nodes}
-          defaultThumbnail={defaultThumbnail}
+          // defaultThumbnail={defaultThumbnail}
           currentPage={currentPage}
           numberOfPages={numberOfPages}
         />
@@ -37,27 +37,6 @@ export const query = graphql`
           id
           title
           slug
-          featured_media {
-            localFile {
-              childImageSharp {
-                fixed(width: 150, height: 150) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-              relativePath
-            }
-          }
-        }
-      }
-    }
-    allImageSharp(
-      filter: { original: { src: { regex: "/tetchi-profile/" } } }
-    ) {
-      edges {
-        node {
-          fixed(width: 150, height: 150) {
-            ...GatsbyImageSharpFixed
-          }
         }
       }
     }

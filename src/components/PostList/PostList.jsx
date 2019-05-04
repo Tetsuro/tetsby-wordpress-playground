@@ -6,7 +6,7 @@ import styles from './PostList.module.scss';
 
 export default class PostList extends Component {
   render() {
-    const { nodes, defaultThumbnail, currentPage, numberOfPages } = this.props;
+    const { nodes, currentPage, numberOfPages } = this.props;
 
     const isFirst = currentPage === 1;
     const isLast = currentPage === numberOfPages;
@@ -31,21 +31,8 @@ export default class PostList extends Component {
     const listing = nodes.map(node => {
       const { title, id, slug } = node;
 
-      const localFile = node.featured_media
-        ? node.featured_media.localFile
-        : null;
-
-      const fixed = localFile
-        ? localFile.childImageSharp.fixed
-        : defaultThumbnail;
-
-      const featuredImageMarkup = (
-        <Img fixed={fixed} className={styles.PostListThumbnail} />
-      );
-
       return (
         <li key={id} className={styles.PostList}>
-          {featuredImageMarkup}
           <Link to={`/${slug}`}>
             <span
               dangerouslySetInnerHTML={{

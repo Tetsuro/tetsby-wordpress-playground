@@ -114,7 +114,7 @@ module.exports = {
           '**/categories',
           '**/posts',
           '**/pages',
-          '**/media',
+          // '**/media',
           '**/tags',
           '**/comments',
           '**/menus',
