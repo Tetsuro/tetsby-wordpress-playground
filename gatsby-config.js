@@ -91,13 +91,13 @@ module.exports = {
         },
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
-        verboseOutput: true,
+        verboseOutput: false,
         // Set how many pages are retrieved per API request.
         perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: 'http://localhost:9999',
-          replacementUrl: 'https://www.tetchi.ca',
+          sourceUrl: 'http://localhost:9999/tetchi',
+          replacementUrl: 'http://localhost:9999/tetchi',
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,

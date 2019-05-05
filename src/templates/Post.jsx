@@ -4,11 +4,12 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import CommentsList from '../components/CommentsList';
+import CommentForm from '../components/CommentForm';
 import PostFooterLinks from '../components/PostFooterLinks';
 
 class Post extends Component {
   render() {
-    const { title, content } = this.props.data.wordpressPost;
+    const { title, content, wordpress_id } = this.props.data.wordpressPost;
     const { edges } = this.props.data.allWordpressWpComments;
     const { newerPostSlug, olderPostSlug } = this.props.pageContext;
 
@@ -28,6 +29,7 @@ class Post extends Component {
           }}
         />
         <CommentsList comments={comments} />
+        <CommentForm postId={wordpress_id} />
         <PostFooterLinks
           newerPostSlug={newerPostSlug}
           olderPostSlug={olderPostSlug}
