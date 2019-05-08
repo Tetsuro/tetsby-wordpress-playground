@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styles from './CommentForm.scss';
 
-const ACTION_BASE_URL = 'http://localhost:9999/tetchi/wp-json/wp/v2/comments';
+const ACTION_BASE_URL = `${process.env.WP_PROTOCOL}://${
+  process.env.WP_BASE_URL
+}/wp-json/wp/v2/comments`;
 
 class CommentForm extends Component {
   render() {
@@ -48,8 +50,8 @@ class CommentForm extends Component {
           author_name: name.value,
           author_url: website.value,
           author_email: email.value,
-          author_ip: data.ip,
           content: comment.value,
+          // author_ip: data.ip, // TODO: See if this is necessary
         });
 
         this.submitPost(sendData);
