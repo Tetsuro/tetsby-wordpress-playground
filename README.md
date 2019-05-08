@@ -2,22 +2,20 @@
   Tetchi x Gatsby Playground
 </h1>
 
-
 ## 1. Install plugin for menu
 
 https://wordpress.org/plugins/wp-api-menus/
 
 ## 2. Create an .env file
 
-Create a `.env.development` file. 
+Create a `.env.development` file.
 
 Add the following:
 
 ```
-WP_BASE_URL=localhost:XXXX
-WP_PROTOCOL=http
+GATSBY_WP_BASE_URL=localhost:XXXX
+GATSBY_WP_PROTOCOL=http
 ```
-
 
 ---
 

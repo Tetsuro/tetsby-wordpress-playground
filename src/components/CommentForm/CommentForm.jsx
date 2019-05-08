@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './CommentForm.scss';
 
-const ACTION_BASE_URL = `${process.env.WP_PROTOCOL}://${
-  process.env.WP_BASE_URL
+const ACTION_BASE_URL = `${process.env.GATSBY_WP_PROTOCOL}://${
+  process.env.GATSBY_WP_BASE_URL
 }/wp-json/wp/v2/comments`;
 
 console.log(process.env);
