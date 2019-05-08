@@ -5,6 +5,10 @@ const ACTION_BASE_URL = `${process.env.WP_PROTOCOL}://${
   process.env.WP_BASE_URL
 }/wp-json/wp/v2/comments`;
 
+console.log(process.env);
+console.log(ACTION_BASE_URL);
+console.log(process.env.GATSBY_FOO);
+
 class CommentForm extends Component {
   render() {
     const { postId } = this.props;
