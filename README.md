@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a6fa39ec-dbd0-436f-8b2e-9a0ad0889c66/deploy-status)](https://app.netlify.com/sites/tetchi-gatsby/deploys)
+
 <h1 align="center">
   Tetchi x Gatsby Playground
 </h1>
