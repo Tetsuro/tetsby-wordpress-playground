@@ -5,10 +5,6 @@ const ACTION_BASE_URL = `${process.env.GATSBY_WP_PROTOCOL}://${
   process.env.GATSBY_WP_BASE_URL
 }/wp-json/wp/v2/comments`;
 
-console.log(process.env);
-console.log(ACTION_BASE_URL);
-console.log(process.env.GATSBY_FOO);
-
 class CommentForm extends Component {
   render() {
     const { postId } = this.props;
@@ -44,25 +40,14 @@ class CommentForm extends Component {
     evt.preventDefault();
 
     const [postId, name, email, website, comment] = evt.target.elements;
-    fetch('https://ipapi.co/json/')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        const sendData = JSON.stringify({
-          post: postId.value,
-          author_name: name.value,
-          author_url: website.value,
-          author_email: email.value,
-          content: comment.value,
-          // author_ip: data.ip, // TODO: See if this is necessary
-        });
+    const sendData = JSON.stringify({
+      post: postId.value,
+      author_name: name.value,
+      author_url: website.value,
+      author_email: email.value,
+      content: comment.value,
+    });
 
-        this.submitPost(sendData);
-      });
-  }
-
-  submitPost(sendData) {
     fetch(ACTION_BASE_URL, {
       method: 'post',
       headers: {
