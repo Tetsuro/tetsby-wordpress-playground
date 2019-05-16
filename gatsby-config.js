@@ -91,7 +91,7 @@ module.exports = {
         },
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
-        verboseOutput: false,
+        verboseOutput: true,
         // Set how many pages are retrieved per API request.
         perPage: 100,
         // Search and Replace Urls across WordPress content.
@@ -100,16 +100,7 @@ module.exports = {
           replacementUrl: 'http://localhost:9999/tetchi',
         },
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
-        // Set WP REST API routes whitelists
-        // and blacklists using glob patterns.
-        // Defaults to whitelist the routes shown
-        // in the example below.
-        // See: https://github.com/isaacs/minimatch
-        // Example:  `["/*/*/comments", "/yoast/**"]`
-        // ` will either include or exclude routes ending in `comments` and
-        // all routes that begin with `yoast` from fetch.
-        // Whitelisted routes using glob patterns
+        concurrentRequests: process.env.GATSBY_WP_CONCURRENT_REQUESTS,
         includedRoutes: [
           '**/categories',
           '**/posts',
@@ -127,8 +118,5 @@ module.exports = {
         },
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
